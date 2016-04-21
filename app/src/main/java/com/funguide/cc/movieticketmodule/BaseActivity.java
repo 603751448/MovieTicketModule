@@ -21,12 +21,12 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected Activity self; /**上下文对象**/
 //    protected LoadingDialog loadingDialog;/**请求数据的时候弹出的等待loadingDialog**/
     private View.OnClickListener backListener = new View.OnClickListener() {/**返回按钮的点击事件**/
-                @Override
-                public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 if (v.getId() == R.id.back){
                     finish();
                 }
-                }
+            }
             };
     /**通过一个hander触发loadingDialog的显示隐藏**/
     public static final int SHOW_MESSAGE = 0x01;
@@ -43,13 +43,13 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
                     if (msg.obj != null) {
                         msgtip = msg.obj.toString();
                     }
-                break;
+                    break;
                 case SHOW_LOADING:     // 显示加载状态
 //                    loadingDialog.show();
-                break;
+                    break;
                 case HIDE_MESSAGE:    // 隐藏
 //                    loadingDialog.dismiss();
-                break;
+                    break;
 
 
             }
@@ -165,7 +165,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     void setActionPath(String actionPath){
         this.actionPath = actionPath;
     }
-   /** 显示网络请求所获取的json字符串 **/
+    /** 显示网络请求所获取的json字符串 **/
     protected void handleResp(String msg,Class clazz){};
     /** toast 请求错误时候的信息**/
     protected void handleErrResp(String msg, Class clazz) {
