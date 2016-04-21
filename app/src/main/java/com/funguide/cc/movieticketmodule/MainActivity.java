@@ -11,6 +11,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         setTitle("影票入口");
+        //测试提交代码
         findViewById(R.id.txtTitleRight).setVisibility(View.GONE);
         findViewById(R.id.back).setVisibility(View.GONE);
         btn_entrance = (Button) this.findViewById(R.id.btn_entrance);
