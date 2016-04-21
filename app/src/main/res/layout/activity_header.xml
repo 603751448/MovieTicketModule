@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_a" >
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="14dp"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:drawableLeft="@mipmap/back"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:textColor="@color/pureBlack"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:maxEms="10"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="影票"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/txtTitleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="13dp"
+        android:textSize="14sp"
+        android:text="完成"
+        android:textColor="@color/pureBlack"
+        />
+</RelativeLayout>

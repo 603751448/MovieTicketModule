@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 整体用色-->
+    <color name="blue">#0066CC</color>  <!--需要特别强调的用色  强调文字，选中导航栏，按钮状态，卡片管理，我的 -->
+    <color name="blue_a">#19B3F4</color>  <!--需要特别强调的用色  强调文字，选中导航栏，按钮状态，卡片管理，我的 -->
+    <color name="pureBlack">#000000</color> <!-- 用于重要级文字，标题 -->
+    <color name="black_a">#666666</color> <!-- 用于普通文字，引导词按钮用色，icon文字描述，次要按钮点击用色 -->
+    <color name="black_b">#999999</color> <!-- 用于按钮用色 -->
+    <color name="pureWhite">#FFFFFF</color> <!-- 用于内容背景 -->
+    <color name="white_a">#EFEFEF</color> <!-- 用于默认背景底色 -->
+    <color name="white_b">#CCCCCC</color> <!-- 用于模块边框，分割线 -->
+
+    <color name="red">#FF3333</color> <!-- 用于警示用色 -->
+
+
+</resources>
