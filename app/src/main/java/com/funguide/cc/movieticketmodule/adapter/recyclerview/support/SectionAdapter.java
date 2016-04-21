@@ -3,9 +3,9 @@ package com.funguide.cc.movieticketmodule.adapter.recyclerview.support;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
-import com.magus.jiutai.adapter.ViewHolder;
-import com.magus.jiutai.adapter.recyclerview.MultiItemCommonAdapter;
-import com.magus.jiutai.adapter.recyclerview.MultiItemTypeSupport;
+import com.funguide.cc.movieticketmodule.adapter.ViewHolder;
+import com.funguide.cc.movieticketmodule.adapter.recyclerview.MultiItemCommonAdapter;
+import com.funguide.cc.movieticketmodule.adapter.recyclerview.MultiItemTypeSupport;
 
 import java.util.LinkedHashMap;
 import java.util.List;

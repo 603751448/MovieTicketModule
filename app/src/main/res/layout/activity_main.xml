@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/pureWhite"
     android:orientation="vertical"
- >
+    >
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/activity_header" />
+        layout="@layout/layout_header" />
     <Button
         android:id="@+id/btn_entrance"
         android:layout_width="150dp"

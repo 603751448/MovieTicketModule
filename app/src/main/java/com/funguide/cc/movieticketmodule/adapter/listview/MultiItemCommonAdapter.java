@@ -3,8 +3,7 @@ package com.funguide.cc.movieticketmodule.adapter.listview;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.magus.jiutai.adapter.ViewHolder;
+import com.funguide.cc.movieticketmodule.adapter.ViewHolder;
 
 import java.util.List;
 

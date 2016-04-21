@@ -2,27 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/title"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="50dp"
     android:background="@color/white_a" >
 
-    <TextView
-        android:id="@+id/back"
+    <ImageView
+        android:id="@+id/title_back_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="14dp"
-        android:drawablePadding="5dp"
+        android:layout_marginLeft="@dimen/margin_title"
+        android:padding="@dimen/padding_title"
         android:gravity="center_vertical"
         android:textColor="@android:color/white"
-        android:drawableLeft="@mipmap/back"
+        android:src="@mipmap/back"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/txtTitle"
+        android:id="@+id/title_center_txt"
         android:textColor="@color/pureBlack"
-        android:paddingTop="13dp"
-        android:paddingBottom="13dp"
         android:maxLines="1"
         android:singleLine="true"
         android:maxEms="10"
@@ -35,14 +33,27 @@
         />
 
     <TextView
-        android:id="@+id/txtTitleRight"
+        android:id="@+id/title_right_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:paddingRight="13dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:text="完成"
+        android:layout_marginRight="@dimen/margin_title"
+        android:padding="@dimen/padding_title"
         android:textColor="@color/pureBlack"
+        />
+    <ImageView
+        android:id="@+id/title_right_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/margin_title"
+        android:padding="@dimen/padding_title"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
         />
 </RelativeLayout>
