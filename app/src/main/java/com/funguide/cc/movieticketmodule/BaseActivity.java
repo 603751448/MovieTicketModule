@@ -51,7 +51,6 @@ public abstract class BaseActivity extends Activity {
             }
         });
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +59,9 @@ public abstract class BaseActivity extends Activity {
         initView();
     }
 
-    //初始化数据
+    /**初始化数据**/
     public abstract void initData();
-    //初始化控件
+    /**初始化控件**/
     public abstract void initView();
 
 

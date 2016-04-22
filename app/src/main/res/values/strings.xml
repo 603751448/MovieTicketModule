@@ -4,4 +4,11 @@
     <string name="ticket_problem">影票业务热点问题</string>
     <string name="msg_load_ing">加载中....</string>
     <string name="net_disable">您的网络好像不给力哦，请稍候再试</string>
+
+    <string name="pull_to_refresh_pull_label">上拉加载更多&#8230;</string>
+    <string name="pull_down_to_refresh_pull_label">下拉刷新&#8230;</string>
+    <string name="pull_to_refresh_release_label">松开刷新数据&#8230;</string>
+    <string name="pull_to_refresh_refreshing_label">加载数据中&#8230;</string>
+    <string name="pull_to_refresh_tap_label">点击刷新&#8230;</string>
+
 </resources>

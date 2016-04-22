@@ -3,29 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.funguide.cc.movieticketmodule.TicketProblemActivity">
+    >
 
-    <RelativeLayout
-        style="@style/top_rela"
-        >
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView1"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/back"
-            android:clickable="true"
-            android:onClick="iv_Back"
-            />
-
-        <TextView
-            android:id="@+id/textView1"
-            style="@style/top_center"
-            android:text="@string/ticket_problem"
-            android:textColor="@color/red" />
-    </RelativeLayout>
 
 </RelativeLayout>
+
+
