@@ -1,16 +1,40 @@
 package com.funguide.cc.movieticketmodule.activity;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.funguide.cc.movieticketmodule.BaseActivity;
 import com.funguide.cc.movieticketmodule.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * 影票首页
  **/
 public class TicketMainActivity extends BaseActivity {
+
+    @Bind(R.id.title_back_img)
+    ImageView titleBackImg;
+    @Bind(R.id.title_center_txt)
+    TextView titleCenterTxt;
+    @Bind(R.id.title_right_txt)
+    TextView titleRightTxt;
+    @Bind(R.id.title_right_img)
+    ImageView titleRightImg;
+    @Bind(R.id.title)
+    RelativeLayout title;
+    @Bind(R.id.ticket_main_viewpager)
+    ViewPager ticketMainViewpager;
+    @Bind(R.id.viewpager_point1_img)
+    ImageView viewpagerPoint1Img;
+    @Bind(R.id.viewpager_point2_img)
+    ImageView viewpagerPoint2Img;
+    @Bind(R.id.viewpager_point3_img)
+    ImageView viewpagerPoint3Img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +55,6 @@ public class TicketMainActivity extends BaseActivity {
 
 
     }
-
-
 
 
 }
