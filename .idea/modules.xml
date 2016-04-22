@@ -3,10 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MovieTicketModule.iml" filepath="$PROJECT_DIR$/MovieTicketModule.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MovieTicketModule.iml" filepath="$PROJECT_DIR$/MovieTicketModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base_library_pullToRefresh/base_library_pullToRefresh.iml" filepath="$PROJECT_DIR$/base_library_pullToRefresh/base_library_pullToRefresh.iml" />
     </modules>
   </component>
 </project>

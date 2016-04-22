@@ -1,22 +1,34 @@
 package com.funguide.cc.movieticketmodule.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funguide.cc.movieticketmodule.BaseActivity;
 import com.funguide.cc.movieticketmodule.R;
+import com.funguide.cc.movieticketmodule.adapter.TicketAdvAdapter;
+import com.funguide.cc.movieticketmodule.utils.GlideUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 影票首页
  **/
 public class TicketMainActivity extends BaseActivity {
-
     @Bind(R.id.title_back_img)
     ImageView titleBackImg;
     @Bind(R.id.title_center_txt)
@@ -25,8 +37,9 @@ public class TicketMainActivity extends BaseActivity {
     TextView titleRightTxt;
     @Bind(R.id.title_right_img)
     ImageView titleRightImg;
-    @Bind(R.id.title)
-    RelativeLayout title;
+    /**
+     * 广告布局控件
+     **/
     @Bind(R.id.ticket_main_viewpager)
     ViewPager ticketMainViewpager;
     @Bind(R.id.viewpager_point1_img)
@@ -35,175 +48,154 @@ public class TicketMainActivity extends BaseActivity {
     ImageView viewpagerPoint2Img;
     @Bind(R.id.viewpager_point3_img)
     ImageView viewpagerPoint3Img;
+    @Bind(R.id.viewpager_point_lly)
+    LinearLayout viewpagerPointLly;
+    @Bind(R.id.ticket_allfilm_lly)
+    LinearLayout ticketAllfilmLly;
+    @Bind(R.id.ticket_allcinema_lly)
+    LinearLayout ticketAllcinemaLly;
+    @Bind(R.id.ticket_myticket_lly)
+    LinearLayout ticketMyticketLly;
+
+    private List<View> viewLists;
+    private int[] imageResId; // 图片ID
+    private int currentItem = 0; // 当前图片的索引号
+    private List<View> dots; // 图片标题正文的那些点
+    private ScheduledExecutorService scheduledExecutorService;
+    // 切换当前显示的图片
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            ticketMainViewpager.setCurrentItem(currentItem);// 切换当前显示的图片
+        }
+
+        ;
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_ticket_main);
         ButterKnife.bind(this);
+        initData();
         initView();
     }
 
-    @Override
+    /**
+     * 初始化数据
+     **/
     public void initData() {
+        initBannerData();
+    }
 
+    /**
+     * 初始化布局
+     **/
+    public void initView() {
+        ticketMainViewpager.setAdapter(new TicketAdvAdapter(this, viewLists));
+        // 设置一个监听器，当ViewPager中的页面改变时调用
+        ticketMainViewpager.setOnPageChangeListener(new MyPageChangeListener());
+    }
+
+    @OnClick({R.id.title_back_img, R.id.title_right_txt,R.id.ticket_allfilm_lly, R.id.ticket_allcinema_lly, R.id.ticket_myticket_lly})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.title_back_img:
+                finish();
+                break;
+            case R.id.title_right_txt:
+                startActivity(TicketProblemActivity.class);
+                break;
+            case R.id.ticket_allfilm_lly:
+                startActivity(AllFilmActivity.class);
+                break;
+            case R.id.ticket_allcinema_lly:
+                break;
+            case R.id.ticket_myticket_lly:
+                break;
+        }
+    }
+
+    /**
+     * 换行切换任务
+     **/
+    private class ScrollTask implements Runnable {
+        public void run() {
+            synchronized (ticketMainViewpager) {
+                System.out.println("currentItem: " + currentItem);
+                currentItem = (currentItem + 1) % viewLists.size();
+                handler.obtainMessage().sendToTarget(); // 通过Handler切换图片
+            }
+        }
+
+    }
+
+
+    /**
+     * 当ViewPager中页面的状态发生改变时调用
+     **/
+    private class MyPageChangeListener implements ViewPager.OnPageChangeListener {
+        private int oldPosition = 0;
+
+        /**
+         * This method will be invoked when a new page becomes selected.
+         * position: Position index of the new selected page.
+         */
+        public void onPageSelected(final int position) {
+            currentItem = position;
+            dots.get(oldPosition).setBackgroundResource(R.drawable.dot_normal);
+            dots.get(position).setBackgroundResource(R.drawable.dot_focused);
+            oldPosition = position;
+            viewLists.get(position).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(TicketMainActivity.this, position + "", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        public void onPageScrollStateChanged(int arg0) {
+
+        }
+
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+        }
+    }
+
+
+    /**
+     * 初始化banner数据
+     **/
+    private void initBannerData() {
+        viewLists = new ArrayList<>();
+        dots = new ArrayList<>();
+        imageResId = new int[]{R.drawable.a, R.drawable.b, R.drawable.c};
+        for (int i = 0; i < imageResId.length; i++) {
+            ImageView imageView = new ImageView(this);
+            GlideUtils.loadImagByResource(this, imageResId[i], imageView);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setImageResource(imageResId[i]);
+            viewLists.add(imageView);
+        }
+        dots.add(viewpagerPoint1Img);
+        dots.add(viewpagerPoint2Img);
+        dots.add(viewpagerPoint3Img);
+    }
+
+
+    @Override
+    protected void onStart() {
+        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        // 当Activity显示出来后，每两秒钟切换一次图片显示
+        scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 2, TimeUnit.SECONDS);
+        super.onStart();
     }
 
     @Override
-    public void initView() {
-
-
+    protected void onStop() {
+        // 当Activity不可见的时候停止切换
+        scheduledExecutorService.shutdown();
+        super.onStop();
     }
-
-
 }
-
-//    private ImageView back;
-//    private ImageView iv_problem;
-//    private ImageView[] imageViews = null;  	/**VP 开始 **/
-//    private ImageView imageView = null;
-//    private ViewPager advPager = null;
-//    private AtomicInteger what = new AtomicInteger(0);
-//    private boolean isContinue = true;         /**  VP结束 **/
-//    private ListView lv_tuijianyingyuan; // 推荐影院
-//    private RecommendedCinemaAcapter recommendedCinemaAcapter;
-//
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.back:          // 返回
-//                this.finish();
-//                break;
-//            case R.id.iv_problem:    // 影票业务热点问题
-//                Intent intent = new Intent(TicketMainActivity.this, TicketProblemActivity.class);
-//                startActivity(intent);
-//                break;
-//        }
-//    }
-//
-//    @Override
-//    protected void initView() {
-//        lv_tuijianyingyuan = (ListView) this.findViewById(R.id.lv_tuijianyingyuan);
-//        iv_problem = (ImageView) this.findViewById(R.id.iv_problem);
-//        back = (ImageView) this.findViewById(R.id.back);
-//        iv_problem.setOnClickListener(this);
-//        back.setOnClickListener(this);
-//
-//        initViewPager();
-//    }
-//
-//    private void initViewPager() {
-//        advPager = (ViewPager) findViewById(R.id.adv_pager);
-//        ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);
-//        List<View> advPics = new ArrayList<View>();
-//
-//
-//        ImageView img1 = new ImageView(this);
-//        img1.setBackgroundResource(R.drawable.tips_bg);
-//        advPics.add(img1);
-//
-//        ImageView img2 = new ImageView(this);
-//        img2.setBackgroundResource(R.mipmap.back);
-//        advPics.add(img2);
-//
-//        imageViews = new ImageView[advPics.size()];
-//
-//        for (int i = 0; i < advPics.size(); i++) {
-//            imageView = new ImageView(this);
-//            imageView.setLayoutParams(new LayoutParams(20, 20));
-//            imageView.setPadding(5, 5, 5, 20);
-//            imageViews[i] = imageView;
-//            if (i == 0) {
-//                imageViews[i]
-//                        .setBackgroundResource(R.mipmap.banner_dian_focus);
-//            } else {
-//                imageViews[i]
-//                        .setBackgroundResource(R.mipmap.banner_dian_blur);
-//            }
-//            group.addView(imageViews[i]);
-//            advPager.setAdapter(new AdvAdapter(advPics));
-//            advPager.setOnPageChangeListener(new GuidePageChangeListener());
-//            advPager.setOnTouchListener(new View.OnTouchListener() {
-//
-//                @Override
-//                public boolean onTouch(View v, MotionEvent event) {
-//                    switch (event.getAction()) {
-//                        case MotionEvent.ACTION_DOWN:
-//                        case MotionEvent.ACTION_MOVE:
-//                            isContinue = false;
-//                            break;
-//                        case MotionEvent.ACTION_UP:
-//                            isContinue = true;
-//                            break;
-//                        default:
-//                            isContinue = true;
-//                            break;
-//                    }
-//                    return false;
-//                }
-//            });
-//            new Thread(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    while (true) {
-//                        if (isContinue) {
-//                            viewHandler.sendEmptyMessage(what.get());
-//                            whatOption();
-//                        }
-//                    }
-//                }
-//
-//            }).start();
-//        }
-//
-//    }
-//    private void whatOption() {
-//        what.incrementAndGet();
-//        if (what.get() > imageViews.length - 1) {
-//            what.getAndAdd(-4);
-//        }
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//
-//        }
-//    }
-//
-//    private final Handler viewHandler = new Handler() {
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            advPager.setCurrentItem(msg.what);
-//            super.handleMessage(msg);
-//        }
-//
-//    };
-//
-//    private final class GuidePageChangeListener implements ViewPager.OnPageChangeListener {
-//
-//        @Override
-//        public void onPageScrollStateChanged(int arg0) {
-//
-//        }
-//
-//        @Override
-//        public void onPageScrolled(int arg0, float arg1, int arg2) {
-//
-//        }
-//
-//        @Override
-//        public void onPageSelected(int arg0) {
-//            what.getAndSet(arg0);
-//            for (int i = 0; i < imageViews.length; i++) {
-//                imageViews[arg0].setBackgroundResource(R.mipmap.banner_dian_focus);
-//                if (arg0 != i) {
-//                    imageViews[i].setBackgroundResource(R.mipmap.banner_dian_blur);
-//                }
-//            }
-//
-//        }
-//
-//    }
 

@@ -55,16 +55,7 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPrefUtils.getInstants(this);
-        initData();
-        initView();
     }
-
-    /**初始化数据**/
-    public abstract void initData();
-    /**初始化控件**/
-    public abstract void initView();
-
-
     /**不需要添加参数的intent跳转**/
     protected void startActivity(Class<?> activity){
         Intent intent = new Intent(this,activity);

@@ -7,24 +7,12 @@ import com.funguide.cc.movieticketmodule.R;
 
 import butterknife.ButterKnife;
 
-/**
- * 影票业务热点问题
- **/
-public class TicketProblemActivity extends BaseActivity {
+public class AllFilmActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ticket_problem);
+        setContentView(R.layout.activity_all_film);
         ButterKnife.bind(this);
-    }
-
-
-    public void initData() {
-
-    }
-
-
-    public void initView() {
-
     }
 }
