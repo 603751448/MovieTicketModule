@@ -10,14 +10,15 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".activity.TicketMainActivity" />
         <activity android:name=".activity.TicketProblemActivity" />
         <activity android:name=".activity.AllFilmActivity"></activity>
+        <activity android:name=".activity.AllCinemaActivity"></activity>
+        <activity android:name=".activity.MyTicketActivity"></activity>
     </application>
 
 </manifest>

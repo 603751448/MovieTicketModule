@@ -3,20 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pureWhite"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.funguide.cc.movieticketmodule.activity.AllCinemaActivity">
 
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/layout_header" />
 
-    <Button
-        android:id="@+id/btn_entrance"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="影票入口"
-        android:textColor="@color/pureBlack"
-        android:layout_gravity="center"
-        android:layout_marginTop="150dp" />
+    <com.funguide.cc.movieticketmodule.expandtabview.ExpandTabView
+        android:id="@+id/expandtab_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

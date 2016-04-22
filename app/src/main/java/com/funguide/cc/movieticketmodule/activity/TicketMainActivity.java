@@ -28,7 +28,9 @@ import butterknife.OnClick;
 /**
  * 影票首页
  **/
-public class TicketMainActivity extends BaseActivity {
+public class TicketMainActivity extends BaseActivity  {
+
+
     @Bind(R.id.title_back_img)
     ImageView titleBackImg;
     @Bind(R.id.title_center_txt)
@@ -75,7 +77,7 @@ public class TicketMainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_main);
-        ButterKnife.bind(this);
+         ButterKnife.bind(this);
         initData();
         initView();
     }
@@ -91,6 +93,9 @@ public class TicketMainActivity extends BaseActivity {
      * 初始化布局
      **/
     public void initView() {
+        titleRightTxt.setVisibility(View.GONE);
+        titleRightImg.setVisibility(View.VISIBLE);
+        titleRightImg.setBackgroundResource(R.mipmap.wenhao);
         ticketMainViewpager.setAdapter(new TicketAdvAdapter(this, viewLists));
         // 设置一个监听器，当ViewPager中的页面改变时调用
         ticketMainViewpager.setOnPageChangeListener(new MyPageChangeListener());
@@ -105,12 +110,14 @@ public class TicketMainActivity extends BaseActivity {
             case R.id.title_right_txt:
                 startActivity(TicketProblemActivity.class);
                 break;
-            case R.id.ticket_allfilm_lly:
+            case R.id.ticket_allfilm_lly:     //全部影片
                 startActivity(AllFilmActivity.class);
                 break;
-            case R.id.ticket_allcinema_lly:
+            case R.id.ticket_allcinema_lly:    //全部影院
+                startActivity(AllCinemaActivity.class);
                 break;
-            case R.id.ticket_myticket_lly:
+            case R.id.ticket_myticket_lly:    // 我的影票
+                startActivity(MyTicketActivity.class);
                 break;
         }
     }

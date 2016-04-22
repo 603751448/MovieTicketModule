@@ -20,6 +20,8 @@
     <TextView
         android:id="@+id/title_center_txt"
         android:textColor="@color/pureBlack"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
         android:maxLines="1"
         android:singleLine="true"
         android:maxEms="10"
@@ -29,6 +31,7 @@
         android:layout_centerInParent="true"
         android:text="影票"
         android:textSize="18sp"
+
         />
 
     <TextView
