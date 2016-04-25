@@ -28,7 +28,7 @@ import butterknife.OnClick;
 /**
  * 影票首页
  **/
-public class TicketMainActivity extends BaseActivity  {
+public class TicketMainActivity extends BaseActivity {
 
 
     @Bind(R.id.title_back_img)
@@ -58,6 +58,10 @@ public class TicketMainActivity extends BaseActivity  {
     LinearLayout ticketAllcinemaLly;
     @Bind(R.id.ticket_myticket_lly)
     LinearLayout ticketMyticketLly;
+    @Bind(R.id.ticket_allfilm_txt)
+    TextView ticketAllfilmTxt;
+    @Bind(R.id.ticket_allcinema_txt)
+    TextView ticketAllcinemaTxt;
 
     private List<View> viewLists;
     private int[] imageResId; // 图片ID
@@ -77,7 +81,7 @@ public class TicketMainActivity extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_main);
-         ButterKnife.bind(this);
+        ButterKnife.bind(this);
         initData();
         initView();
     }
@@ -101,13 +105,16 @@ public class TicketMainActivity extends BaseActivity  {
         ticketMainViewpager.setOnPageChangeListener(new MyPageChangeListener());
     }
 
-    @OnClick({R.id.title_back_img, R.id.title_right_txt,R.id.ticket_allfilm_lly, R.id.ticket_allcinema_lly, R.id.ticket_myticket_lly})
+    @OnClick({R.id.title_back_img, R.id.title_right_img, R.id.ticket_allfilm_lly,
+            R.id.ticket_allcinema_lly, R.id.ticket_myticket_lly,
+            R.id.ticket_allfilm_txt, R.id.ticket_allcinema_txt
+    })
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.title_back_img:
                 finish();
                 break;
-            case R.id.title_right_txt:
+            case R.id.title_right_img:
                 startActivity(TicketProblemActivity.class);
                 break;
             case R.id.ticket_allfilm_lly:     //全部影片
@@ -119,8 +126,16 @@ public class TicketMainActivity extends BaseActivity  {
             case R.id.ticket_myticket_lly:    // 我的影票
                 startActivity(MyTicketActivity.class);
                 break;
+            case R.id.ticket_allfilm_txt:////全部影片
+                startActivity(AllFilmActivity.class);
+                break;
+            case R.id.ticket_allcinema_txt: //全部影院
+                startActivity(AllCinemaActivity.class);
+                break;
         }
     }
+
+
 
     /**
      * 换行切换任务
@@ -133,7 +148,6 @@ public class TicketMainActivity extends BaseActivity  {
                 handler.obtainMessage().sendToTarget(); // 通过Handler切换图片
             }
         }
-
     }
 
 
@@ -149,8 +163,8 @@ public class TicketMainActivity extends BaseActivity  {
          */
         public void onPageSelected(final int position) {
             currentItem = position;
-            dots.get(oldPosition).setBackgroundResource(R.drawable.dot_normal);
-            dots.get(position).setBackgroundResource(R.drawable.dot_focused);
+            dots.get(oldPosition).setBackgroundResource(R.mipmap.dot1_w);
+            dots.get(position).setBackgroundResource(R.mipmap.dot2_w);
             oldPosition = position;
             viewLists.get(position).setOnClickListener(new View.OnClickListener() {
                 @Override

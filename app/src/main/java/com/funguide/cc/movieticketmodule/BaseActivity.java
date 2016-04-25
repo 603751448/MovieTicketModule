@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentActivity;
 
 import com.funguide.cc.movieticketmodule.utils.Constans;
 import com.funguide.cc.movieticketmodule.utils.SharedPrefUtils;
 
 import java.util.Map;
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
     /**通过一个hander触发loadingDialog的显示隐藏**/
     public static final int SHOW_MESSAGE = 0x01;
     public static final int SHOW_LOADING = 0x02;

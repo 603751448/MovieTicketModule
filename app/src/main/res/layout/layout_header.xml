@@ -14,7 +14,7 @@
         android:padding="@dimen/padding_title"
         android:gravity="center_vertical"
         android:textColor="@android:color/white"
-        android:src="@mipmap/back"
+        android:src="@mipmap/icon_title_back"
         android:textSize="14sp" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="影票"
+        android:text="主题"
         android:textSize="18sp"
 
         />
@@ -44,6 +44,7 @@
         android:text="完成"
         android:layout_marginRight="@dimen/margin_title"
         android:padding="@dimen/padding_title"
+        android:visibility="gone"
         android:textColor="@color/pureBlack"
         />
     <ImageView

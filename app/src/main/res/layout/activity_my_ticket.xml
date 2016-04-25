@@ -1,145 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_a"
     tools:context="com.funguide.cc.movieticketmodule.activity.MyTicketActivity">
-
-
-    <LinearLayout
+    <include
+        layout="@layout/layout_header"
+        />
+    <RelativeLayout
+        android:id="@+id/ticket_order_rly"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/ticket_order_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/movies_ic_tab_coupon"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_toRightOf="@+id/ticket_order_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="影票订单"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_arrow_right"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
 
-        <include
-            layout="@layout/layout_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/white_b" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white_a">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:src="@mipmap/back"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/title_center_txt"
-                android:textColor="@color/pureBlack"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:maxEms="10"
-                android:ellipsize="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="影票"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/title_right_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textSize="16sp"
-                android:text="完成"
-                android:layout_marginRight="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:textColor="@color/pureBlack" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:layout_marginRight="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:textColor="@android:color/white"
-                android:visibility="gone" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/white_b" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white_a">
-
-            <ImageView
-                android:id="@+id/title_back_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:src="@mipmap/back"
-                android:textSize="14sp" />
-
-            <TextView
-                android:textColor="@color/pureBlack"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:maxEms="10"
-                android:ellipsize="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="影票"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textSize="16sp"
-                android:text="完成"
-                android:layout_marginRight="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:textColor="@color/pureBlack" />
-
-            <ImageView
-                android:id="@+id/title_right_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:layout_marginRight="@dimen/margin_title"
-                android:padding="@dimen/padding_title"
-                android:textColor="@android:color/white"
-                android:visibility="gone" />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/white_b" />
-    </LinearLayout>
-
-
-</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/ticket_coupon_rly"
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/ticket_coupon_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/movies_ic_tab_movie"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_toRightOf="@+id/ticket_coupon_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电影优惠券"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_arrow_right"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

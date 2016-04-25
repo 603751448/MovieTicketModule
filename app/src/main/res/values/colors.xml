@@ -14,9 +14,11 @@
     <color name="black_b">#999999</color> <!-- 用于按钮用色 -->
     <color name="pureWhite">#FFFFFF</color> <!-- 用于内容背景 -->
     <color name="white">#FFFFFF</color> <!-- 用于内容背景 -->
+    <color name="black">#000000</color> <!-- 用于内容背景 -->
     <color name="white_a">#EFEFEF</color> <!-- 用于默认背景底色 -->
     <color name="white_b">#CCCCCC</color> <!-- 用于模块边框，分割线 -->
 
+    <color name="yellow">#f5c06e</color> <!-- 评分-->
     <color name="red">#FF3333</color> <!-- 用于警示用色 -->
 
 

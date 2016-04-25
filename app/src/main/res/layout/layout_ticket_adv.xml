@@ -21,7 +21,7 @@
         >
         <ImageView
             android:id="@+id/viewpager_point1_img"
-            android:background="@drawable/dot_focused"
+            android:background="@mipmap/dot2_w"
             style="@style/dot_style" />
         <ImageView
             android:id="@+id/viewpager_point2_img"

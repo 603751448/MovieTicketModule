@@ -11,8 +11,14 @@ import com.funguide.cc.movieticketmodule.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * 我的影票
+ */
 
 public class MyTicketActivity extends BaseActivity {
+
 
     @Bind(R.id.title_back_img)
     ImageView titleBackImg;
@@ -20,20 +26,18 @@ public class MyTicketActivity extends BaseActivity {
     TextView titleCenterTxt;
     @Bind(R.id.title_right_txt)
     TextView titleRightTxt;
-    @Bind(R.id.title_right_img)
-    ImageView titleRightImg;
-    @Bind(R.id.title)
-    RelativeLayout title;
+    @Bind(R.id.ticket_order_rly)
+    RelativeLayout ticketOrderRly;
+    @Bind(R.id.ticket_coupon_rly)
+    RelativeLayout ticketCouponRly;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_ticket);
         ButterKnife.bind(this);
-        initView();
         initData();
-
-
+        initView();
     }
 
     public void initData() {
@@ -41,7 +45,22 @@ public class MyTicketActivity extends BaseActivity {
     }
 
     public void initView() {
-        setTitle("我的影票");
-        titleRightTxt.setVisibility(View.GONE);
+        titleCenterTxt.setText("我的影票");
+    }
+
+
+    @OnClick({R.id.title_back_img,R.id.ticket_order_rly, R.id.ticket_coupon_rly})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.title_back_img:
+                finish();
+                break;
+            case R.id.ticket_order_rly:
+                startActivity(MyOderActivity.class);
+                break;
+            case R.id.ticket_coupon_rly:
+                startActivity(MyCouponActivity.class);
+                break;
+        }
     }
 }
