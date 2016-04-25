@@ -76,8 +76,8 @@ public class ExpandTabView extends LinearLayout implements OnDismissListener {
 		mTextArray = textArray;
 		for (int i = 0; i < viewArray.size(); i++) {
 			final RelativeLayout r = new RelativeLayout(mContext);
-			int maxHeight = (int) (displayHeight * 0.7);
-			RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, maxHeight);
+//			int maxHeight = (int) (displayHeight * 0.7);
+			RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 			rl.leftMargin = 10;
 			rl.rightMargin = 10;
 			r.addView(viewArray.get(i), rl);
@@ -88,7 +88,8 @@ public class ExpandTabView extends LinearLayout implements OnDismissListener {
 			View line = new TextView(mContext);
 			line.setBackgroundResource(R.drawable.choosebar_line);
 			if (i < viewArray.size() - 1) {
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(2, LinearLayout.LayoutParams.FILL_PARENT);
+//				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(2, LayoutParams.WRAP_CONTENT);
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(2,50);
 				addView(line, lp);
 			}
 			mToggleButton.add(tButton);

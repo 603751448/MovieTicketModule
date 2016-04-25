@@ -14,12 +14,12 @@ import com.funguide.cc.movieticketmodule.adapter.TextAdapter;
 public class ViewRight extends RelativeLayout implements ViewBaseAction{
 
 	private ListView mListView;
-	private final String[] items = new String[] { "item1", "item2", "item3", "item4", "item5", "item6" };//显示字段
-	private final String[] itemsVaule = new String[] { "1", "2", "3", "4", "5", "6" };//隐藏id
+	private final String[] items = new String[] { "全部影院", "积分支持", "数据",  };//显示字段
+	private final String[] itemsVaule = new String[] { "1", "2", "3" };//隐藏id
 	private OnSelectListener mOnSelectListener;
 	private TextAdapter adapter;
 	private String mDistance;
-	private String showText = "item1";
+	private String showText = "筛选";
 	private Context mContext;
 
 	public String getShowText() {
