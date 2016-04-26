@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.funguide.cc.movieticketmodule.R;
 
 import java.io.File;
 
@@ -67,7 +68,10 @@ public class GlideUtils {
                 .into(imageView);
     }
     public static void loadImagByUrl(Context context,String url, ImageView imageView){
-        Glide.with(context).load(url).into(imageView);
+        Glide.with(context).load(url)
+                .error(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.ic_launcher)
+                .into(imageView);
     }
     public static void loadImagByFile(Context context, File file, ImageView imageView){
         Glide.with(context).load(file).into(imageView);

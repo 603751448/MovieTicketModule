@@ -5,19 +5,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.funguide.cc.movieticketmodule.fragment.CouponFragment;
+import com.funguide.cc.movieticketmodule.fragment.CinemaSessionFragment;
 
 /**
- * Created by tom on 2016/4/19.
- * 优惠券适配器
+ * Created by tom on 2016/4/25.
+ * 影院场次适配器
+ *
  */
-public class CouponTabPageAdapter extends FragmentPagerAdapter {
+public class CinemaSessionPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] couponItemName;
+    private String[] cinemaSessionTitle;
 
-    public CouponTabPageAdapter(FragmentManager fm, String[] couponItemName) {
+    public CinemaSessionPagerAdapter(FragmentManager fm, String[] cinemaSessionTitle) {
         super( fm );
-        this.couponItemName=couponItemName;
+        this.cinemaSessionTitle=cinemaSessionTitle;
     }
 
     @Override
@@ -25,19 +26,19 @@ public class CouponTabPageAdapter extends FragmentPagerAdapter {
         //新建一个Fragment来展示ViewPager item的内容，并传递参数
         Fragment fragment = null;
         if (fragment==null){
-            fragment = new CouponFragment() ;
+            fragment = new CinemaSessionFragment() ;
         }
         Bundle args = new Bundle();
-        args.putString("arg", couponItemName[position]);
+        args.putString("arg", cinemaSessionTitle[position]);
         fragment.setArguments(args);
         return fragment;
     }
     @Override
     public CharSequence getPageTitle(int position) {
-        return couponItemName[position % couponItemName.length];
+        return cinemaSessionTitle[position % cinemaSessionTitle.length];
     }
     @Override
     public int getCount() {
-        return couponItemName.length;
+        return cinemaSessionTitle.length;
     }
 }

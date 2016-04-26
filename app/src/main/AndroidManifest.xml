@@ -22,6 +22,7 @@
         <activity android:name=".activity.AllCinemaActivity" />
         <activity android:name=".activity.MyOderActivity" />
         <activity android:name=".activity.MyCouponActivity" />
+        <activity android:name=".activity.CinemaSessionActivity"></activity>
         <activity android:name=".activity.FuzzySearchActivity"></activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.funguide.cc.movieticketmodule;
+package com.funguide.cc.movieticketmodule.fragment;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.funguide.cc.movieticketmodule.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,7 +21,6 @@ public class CouponFragment extends Fragment {
     public CouponFragment() {
         // Required empty public constructor
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,6 @@ public class CouponFragment extends Fragment {
             name= (String) getArguments().get("arg");
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

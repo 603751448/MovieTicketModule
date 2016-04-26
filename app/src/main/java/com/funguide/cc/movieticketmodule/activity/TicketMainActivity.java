@@ -130,7 +130,8 @@ public class TicketMainActivity extends BaseActivity {
                 startActivity(AllFilmActivity.class);
                 break;
             case R.id.ticket_allcinema_txt: //全部影院
-                startActivity(AllCinemaActivity.class);
+//                startActivity(AllCinemaActivity.class);
+                startActivity(CinemaSessionActivity.class);
                 break;
         }
     }
