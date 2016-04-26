@@ -1,8 +1,12 @@
 package com.funguide.cc.movieticketmodule.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funguide.cc.movieticketmodule.BaseActivity;
 import com.funguide.cc.movieticketmodule.R;
@@ -23,6 +27,14 @@ public class FuzzySearchActivity extends BaseActivity {
     TextView titleRightTxt;
     @Bind(R.id.title_right_img)
     ImageView titleRightImg;
+    @Bind(R.id.search_et)
+    EditText searchEt;
+    @Bind(R.id.search_tv)
+    TextView searchTv;
+    @Bind(R.id.search_history_lv)
+    ListView searchHistoryLv;
+    @Bind(R.id.clear_history_tv)
+    TextView clearHistoryTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +53,16 @@ public class FuzzySearchActivity extends BaseActivity {
         titleCenterTxt.setText("影院搜索");
     }
 
-    @OnClick(R.id.title_back_img)
-    public void onClick() {
-        finish();
+
+    @OnClick({R.id.title_back_img, R.id.search_tv})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.title_back_img:
+                finish();
+                break;
+            case R.id.search_tv:
+                Toast.makeText(this, "搜索", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

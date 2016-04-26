@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_a"
+    android:orientation="vertical"
     tools:context="com.funguide.cc.movieticketmodule.activity.FuzzySearchActivity">
 
     <include layout="@layout/layout_header" />
-</RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="10dp"
+        android:background="@color/pureWhite"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/search" />
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:hint="@string/search_et"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textColor="@color/black_a"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white_a"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="@string/search_tv"
+            android:textColor="@color/red"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pureWhite"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/search_history_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/clear_history_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:padding="20dp"
+            android:text="@string/clear_history"
+            android:textColor="@color/black_a"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</LinearLayout>
