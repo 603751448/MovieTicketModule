@@ -6,7 +6,7 @@
     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white_a"
-    tools:context="com.funguide.cc.movieticketmodule.activity.FilmDetailActivity">
+    tools:context="com.funguide.cc.movieticket.activity.FilmDetailActivity">
     <include
         layout="@layout/layout_header"
         />
@@ -27,7 +27,7 @@
             android:background="@color/blue"
             />
 
-        <com.funguide.cc.movieticketmodule.views.ExpandableTextView
+        <com.funguide.cc.movieticket.views.ExpandableTextView
             android:id="@+id/expand_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:padding="16dp"
                 android:layout_gravity="right|bottom"
                 android:background="@android:color/transparent"/>
-        </com.funguide.cc.movieticketmodule.views.ExpandableTextView>
+        </com.funguide.cc.movieticket.views.ExpandableTextView>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

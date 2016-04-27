@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     >
-    <com.funguide.cc.movieticketmodule.views.NoScrollGridView
+    <com.funguide.cc.movieticket.views.NoScrollGridView
         android:id="@+id/child_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
         >
 
-    </com.funguide.cc.movieticketmodule.views.NoScrollGridView>
+    </com.funguide.cc.movieticket.views.NoScrollGridView>
 </LinearLayout>

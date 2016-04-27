@@ -6,11 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white_a"
-    tools:context="com.funguide.cc.movieticketmodule.activity.SelectCinemaActivity">
+    tools:context="com.funguide.cc.movieticket.activity.SelectCinemaActivity">
     <include
         layout="@layout/layout_header"
         />
-    <com.funguide.cc.movieticketmodule.views.HoverScrollView
+    <com.funguide.cc.movieticket.views.HoverScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -130,7 +130,7 @@
                 <!--<include-->
                     <!--layout="@layout/layout_film_poster"-->
                     <!--/>-->
-                <com.funguide.cc.movieticketmodule.views.NoScrollViewPager
+                <com.funguide.cc.movieticket.views.NoScrollViewPager
                     android:id="@+id/film_pager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
         </FrameLayout>
 
 
-    </com.funguide.cc.movieticketmodule.views.HoverScrollView>
+    </com.funguide.cc.movieticket.views.HoverScrollView>
 
 
 

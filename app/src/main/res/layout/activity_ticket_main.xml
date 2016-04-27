@@ -7,9 +7,11 @@
 
     <include layout="@layout/layout_header" />
 
-    <com.funguide.cc.movieticketmodule.utils.ScrollViewTicket
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,11 +22,12 @@
                 layout="@layout/layout_ticket_adv"
                 />
             <LinearLayout
-                android:layout_marginTop="@dimen/margin_title"
                 android:layout_width="fill_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
                 android:visibility="visible"
+                android:background="@color/white"
+                android:padding="10dp"
                 >
                 <LinearLayout
                     android:id="@+id/ticket_allfilm_lly"
@@ -47,7 +50,8 @@
                         android:layout_margin="1dp"
                         android:text="全部影片"
                         android:textColor="@color/black_a"
-                        android:textSize="20sp" />
+                        android:padding="5dp"
+                        />
 
                 </LinearLayout>
 
@@ -71,7 +75,8 @@
                         android:layout_height="wrap_content"
                         android:text="全部影院"
                         android:textColor="@color/black_a"
-                        android:textSize="20sp" />
+                        android:padding="5dp"
+                        />
 
                 </LinearLayout>
 
@@ -95,14 +100,16 @@
                         android:layout_height="wrap_content"
                         android:text="我的影票"
                         android:textColor="@color/black_a"
-                        android:textSize="20sp" />
+                        android:padding="5dp"
+                        />
                 </LinearLayout>
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_marginTop="@dimen/margin_title"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -117,7 +124,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/ticket_allfilm_txt"
+                    android:id="@+id/ticket_hot_film_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -127,80 +134,22 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </RelativeLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/margin_title"
-                >
-                <LinearLayout
-                    android:layout_marginLeft="@dimen/margin_title"
-                    android:layout_marginRight="@dimen/margin_title"
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginRight="@dimen/margin_title"
 
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginRight="@dimen/margin_title"
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
+            <com.funguide.cc.movieticket.views.AllGridView
+                android:id="@+id/ticket_hot_film_grid"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/margin_title"
-                >
-                <LinearLayout
-                    android:layout_marginLeft="@dimen/margin_title"
-                    android:layout_marginRight="@dimen/margin_title"
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginRight="@dimen/margin_title"
-
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginRight="@dimen/margin_title"
-                    android:background="@drawable/shouye_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:numColumns="3"
+                android:verticalSpacing="5dp"
+                android:horizontalSpacing="5dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                />
             <RelativeLayout
-                android:layout_marginTop="@dimen/margin_title"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:gravity="center">
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,7 +160,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/ticket_allcinema_txt"
+                    android:id="@+id/ticket_recommend_cinema_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -220,13 +169,15 @@
                     android:textColor="@color/black"
                     android:drawableRight="@mipmap/icon_more"
                     android:textSize="16sp" />
+
             </RelativeLayout>
 
-            <ListView
-                android:layout_marginTop="@dimen/margin_title"
+            <com.funguide.cc.movieticket.views.AllListView
+                android:id="@+id/ticket_recommend_cinema_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
                 />
         </LinearLayout>
-    </com.funguide.cc.movieticketmodule.utils.ScrollViewTicket>
+    </ScrollView>
 </LinearLayout>

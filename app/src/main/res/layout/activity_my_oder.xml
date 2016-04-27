@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white_a"
-    tools:context="com.funguide.cc.movieticketmodule.activity.MyOderActivity">
+    tools:context="com.funguide.cc.movieticket.activity.MyOderActivity">
     <include
         layout="@layout/layout_header"
         />

@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.funguide.cc.movieticketmodule">
+    package="com.funguide.cc.movieticket">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+
+        <activity android:name="com.funguide.cc.movieticket.activity.TicketMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TicketMainActivity" />
-        <activity android:name=".activity.TicketProblemActivity" />
-        <activity android:name=".activity.MyTicketActivity" />
-        <activity android:name=".activity.AllFilmActivity" />
-        <activity android:name=".activity.AllCinemaActivity" />
-        <activity android:name=".activity.MyOderActivity" />
-        <activity android:name=".activity.MyCouponActivity" />
-        <activity android:name=".activity.CinemaSessionActivity" />
-        <activity android:name=".activity.FuzzySearchActivity" />
-        <activity android:name=".activity.FilmDetailActivity" />
-        <activity android:name=".activity.SelectCinemaActivity"></activity>
+
+        <activity android:name="com.funguide.cc.movieticket.activity.TicketProblemActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.MyTicketActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.AllFilmActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.AllCinemaActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.MyOderActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.MyCouponActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.CinemaSessionActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.FuzzySearchActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.FilmDetailActivity" />
+        <activity android:name="com.funguide.cc.movieticket.activity.SelectCinemaActivity"/>
+
     </application>
 
 </manifest>
