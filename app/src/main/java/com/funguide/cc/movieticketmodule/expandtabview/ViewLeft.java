@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ViewLeft extends LinearLayout implements ViewBaseAction {
-	
+
 	private ListView regionListView;
 	private ListView plateListView;
 	private ArrayList<String> groups = new ArrayList<String>();
@@ -76,9 +76,9 @@ public class ViewLeft extends LinearLayout implements ViewBaseAction {
 			groups.add(i+"行");
 			LinkedList<String> tItem = new LinkedList<String>();
 			for(int j=0;j<15;j++){
-				
+
 				tItem.add(i+"行"+j+"列");
-				
+
 			}
 			children.put(i, tItem);
 		}
@@ -114,10 +114,10 @@ public class ViewLeft extends LinearLayout implements ViewBaseAction {
 
 					@Override
 					public void onItemClick(View view, final int position) {
-						
+
 						showString = childrenItem.get(position);
 						if (mOnSelectListener != null) {
-							
+
 							mOnSelectListener.getValue(showString);
 						}
 

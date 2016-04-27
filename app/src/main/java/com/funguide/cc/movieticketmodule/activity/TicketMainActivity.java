@@ -115,7 +115,7 @@ public class TicketMainActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.title_right_img:
-                startActivity(TicketProblemActivity.class);
+                startActivity(SelectCinemaActivity.class);
                 break;
             case R.id.ticket_allfilm_lly:     //全部影片
                 startActivity(AllFilmActivity.class);

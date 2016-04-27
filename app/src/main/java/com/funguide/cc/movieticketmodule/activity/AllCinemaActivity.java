@@ -64,7 +64,6 @@ public class AllCinemaActivity extends BaseActivity {
     }
 
     public void initData() {
-
         ArrayList<String> mTextArray = new ArrayList<String>();
         mViewArray.add(viewLeft);
         mViewArray.add(viewMiddle);

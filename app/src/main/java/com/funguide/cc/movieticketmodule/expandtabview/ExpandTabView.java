@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 /**
  * 菜单控件头部，封装了下拉动画，动态生成头部按钮个数
- * 
+ *
  * @author yueyueniao
  */
 

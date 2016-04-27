@@ -15,15 +15,24 @@
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
   -->
+
 <resources>
-    <declare-styleable name="FancyCoverFlow">
-        <attr name="unselectedAlpha" format="float"/>
-        <attr name="unselectedSaturation" format="float"/>
-        <attr name="unselectedScale" format="float"/>
-        <attr name="maxRotation" format="integer"/>
-        <attr name="scaleDownGravity" format="float"/>
-        <attr name="actionDistance" format="integer">
-            <enum name="auto" value="2147483647" />
-        </attr>
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="animAlphaStart" format="float"/>
+        <attr name="expandDrawable" format="reference"/>
+        <attr name="collapseDrawable" format="reference"/>
     </declare-styleable>
+
+<declare-styleable name="FancyCoverFlow">
+    <attr name="unselectedAlpha" format="float"/>
+    <attr name="unselectedSaturation" format="float"/>
+    <attr name="unselectedScale" format="float"/>
+    <attr name="maxRotation" format="integer"/>
+    <attr name="scaleDownGravity" format="float"/>
+    <attr name="actionDistance" format="integer">
+        <enum name="auto" value="2147483647" />
+    </attr>
+</declare-styleable>
 </resources>
