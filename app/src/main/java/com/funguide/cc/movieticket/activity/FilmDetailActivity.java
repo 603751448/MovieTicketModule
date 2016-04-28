@@ -52,7 +52,6 @@ public class FilmDetailActivity extends BaseActivity {
     private void initView() {
         titleCenterTxt.setText("电影名字");
 
-
     }
 
 

@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 选择场次
+ */
 public class CinemaSessionActivity extends BaseActivity {
 
     @Bind(R.id.title_back_img)
@@ -34,6 +38,13 @@ public class CinemaSessionActivity extends BaseActivity {
     NoScrollViewPager cinemaSessionPager;
 
     String data[];
+    @Bind(R.id.cinema_session_cinameName_txt)
+    TextView cinemaSessionCinameNameTxt;
+    @Bind(R.id.cinema_session_cinemaAddre_txt)
+    TextView cinemaSessionCinemaAddreTxt;
+    @Bind(R.id.cinema_session_cinameIntroduce_lly)
+    LinearLayout cinemaSessionCinameIntroduceLly;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,14 +76,15 @@ public class CinemaSessionActivity extends BaseActivity {
         cinemaSessionCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(CinemaSessionActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CinemaSessionActivity.this, "" + position, Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
-        cinemaSessionPager.setAdapter(new CinemaSessionPagerAdapter(getSupportFragmentManager(),data));
+        cinemaSessionPager.setAdapter(new CinemaSessionPagerAdapter(getSupportFragmentManager(), data));
         cinemaSessionTab.setupWithViewPager(cinemaSessionPager);
         ViewPagerScroller scroller = new ViewPagerScroller(this);
         scroller.setScrollDuration(0);
@@ -81,8 +93,17 @@ public class CinemaSessionActivity extends BaseActivity {
         cinemaSessionPager.setNoScroll(true);
     }
 
-    @OnClick(R.id.title_back_img)
-    public void onClick() {
-        finish();
+    @OnClick({R.id.title_back_img,R.id.cinema_session_cinameIntroduce_lly})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.title_back_img:
+                finish();
+                break;
+            case R.id.cinema_session_cinameIntroduce_lly://到影院详情
+                startActivity(CinemaDetialActivity.class);
+                break;
+        }
+
     }
+
 }

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fcf="http://schemas.android.com/apk/res-auto"
     android:background="@color/white_a"
     android:orientation="vertical"
     tools:context="com.funguide.cc.movieticket.activity.CinemaSessionActivity">
@@ -15,6 +14,7 @@
         android:layout_height="wrap_content"
         >
         <LinearLayout
+            android:id="@+id/cinema_session_cinameIntroduce_lly"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,6 +26,7 @@
                 android:orientation="horizontal"
                 >
                 <TextView
+                    android:id="@+id/cinema_session_cinameName_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="金逸国际影城（朝阳大悦城店）"
@@ -45,6 +46,7 @@
                     />
             </LinearLayout>
             <TextView
+                android:id="@+id/cinema_session_cinemaAddre_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="朝阳北路101号朝阳大悦城8层"

@@ -97,7 +97,21 @@ public class SelectCinemaActivity extends BaseActivity {
         scroller.setScrollDuration(0);
         scroller.initViewPagerScroll(filmPager);
         filmPager.setNoScroll(true);
+        filmTab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                topLly.setTranslationY(filmPosterLly.getHeight());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         hoverScrollView.setOnScrollListener(new HoverScrollView.OnScrollListener() {
             @Override
             public void onScrollchanged(int scrollY) {
@@ -123,11 +137,14 @@ public class SelectCinemaActivity extends BaseActivity {
         hoverScrollView.smoothScrollTo(0,0);
     }
 
-    @OnClick(R.id.title_back_img)
+    @OnClick({R.id.title_back_img,R.id.film_poster_lly})
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.title_back_img:
                 finish();
+                break;
+            case R.id.film_poster_lly:
+                startActivity(FilmDetailActivity.class);
                 break;
         }
     }
