@@ -1,6 +1,7 @@
 package com.funguide.cc.movieticket.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,9 +11,9 @@ import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.funguide.cc.movieticket.R;
+import com.funguide.cc.movieticket.activity.SelcectSeatActivity;
 import com.funguide.cc.movieticket.adapter.listview.CommonAdapter;
 import com.funguide.cc.movieticket.views.NoScrollGridView;
 
@@ -123,13 +124,14 @@ public class SessionExListAdapter extends BaseExpandableListAdapter {
             @Override
             public void convert(com.funguide.cc.movieticket.adapter.ViewHolder holder, int postion, GroupData.Child child) {
                 holder.setImageUrl(R.id.child_img, child.getUrl());
-                holder.setText(R.id.child_txt, child.getName());
             }
         });
         viewHolder.childGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(context,position+"",Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(context, SelcectSeatActivity.class);
+                context.startActivity(intent);
+
             }
         });
         return convertView;

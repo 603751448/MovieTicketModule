@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_a"
+    android:orientation="vertical"
+    tools:context="com.funguide.cc.movieticket.activity.SubmitOrderActivity">
+    <include
+        layout="@layout/layout_header"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                android:layout_marginTop="1dp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    />
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="剩余支付时间："
+                    />
+                <TextView
+                    android:id="@+id/order_remaintime_txt"
+                    android:textColor="@color/red"
+                    android:text="14分钟25秒"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="visible"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    />
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="订单信息"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                >
+                <TextView
+                    android:text="影院："
+                    style="@style/order_info_txt1_style" />
+                <TextView
+                    android:id="@+id/order_cinema_name_txt"
+                    android:textColor="@color/black"
+                    android:text="金逸国际影院（朝阳大悦城店）"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="影片："
+                    />
+                <TextView
+                    android:id="@+id/order_film_name_txt"
+                    android:textColor="@color/black"
+                    android:text="蝙蝠侠大战超人"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+
+                >
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="场次："
+                    />
+                <TextView
+                    android:id="@+id/order_session_txt"
+                    android:textColor="@color/red"
+                    android:text="4月12日 16:20"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="影厅："
+                    />
+                <TextView
+                    android:id="@+id/order_hall_txt"
+                    android:textColor="@color/black"
+                    android:text="3号厅"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="座位："
+                    />
+                <TextView
+                    android:id="@+id/order_seat_txt"
+                    android:textColor="@color/black"
+                    android:text="4排07座、4排08座"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="总价："
+                    />
+                <TextView
+                    android:id="@+id/order_total_txt"
+                    android:textColor="@color/black"
+                    android:text="88.00元（包含服务费）"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="手机号："
+                    />
+                <TextView
+                    android:id="@+id/order_phone_txt"
+                    android:textColor="@color/black"
+                    android:text="135 5256 5854"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <RelativeLayout
+                style="@style/order_info_lly_write_style"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:id="@+id/order_coupons_title_txt"
+                    style="@style/order_info_txt1_style"
+                    android:layout_centerVertical="true"
+                    android:text="优惠券:"
+                    />
+                <TextView
+                    android:id="@+id/order_coupons_txt"
+                    android:layout_toRightOf="@+id/order_coupons_title_txt"
+                    android:textColor="@color/red"
+                    android:text="5元代金券"
+                    android:layout_centerVertical="true"
+                    style="@style/order_info_txt_style" />
+                <TextView
+                    android:id="@+id/order_ishas_coupons_txt"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:text="没有优惠券"
+                    android:drawableRight="@mipmap/icon_arrow_right"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                style="@style/order_info_lly_write_style"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    style="@style/order_info_txt1_style"
+                    android:text="支付总额："
+                    />
+                <TextView
+                    android:id="@+id/order_pay_total_txt"
+                    android:textColor="@color/red"
+                    android:text="88.00元"
+                    style="@style/order_info_txt_style" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/order_confirm_btn"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="确认提交订单"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button_shape"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

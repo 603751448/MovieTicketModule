@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by tom on 2016/4/27.
  */
-public class Cinema implements Parcelable {
+public class Cinema extends BaseResponse implements Parcelable {
 
     /**
      * cinemaId : 3123

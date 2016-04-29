@@ -78,7 +78,6 @@ public class CinemaSessionActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(CinemaSessionActivity.this, "" + position, Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -103,7 +102,5 @@ public class CinemaSessionActivity extends BaseActivity {
                 startActivity(CinemaDetialActivity.class);
                 break;
         }
-
     }
-
 }

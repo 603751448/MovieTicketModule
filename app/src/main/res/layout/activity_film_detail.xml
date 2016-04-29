@@ -10,63 +10,90 @@
     <include
         layout="@layout/layout_header"
         />
-    <include
-        layout="@layout/layout_film_poster"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        >
-        <Button
-            android:id="@+id/film_chooseSet_btn"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="选座购票"
-            android:textColor="@color/white"
-            android:background="@color/blue"
-            />
-
-        <com.funguide.cc.movieticket.views.ExpandableTextView
-            android:id="@+id/expand_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            expandableTextView:maxCollapsedLines="6">
-
-            <TextView
-                android:id="@id/expandable_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="sans-serif-light"
-                android:textSize="16sp"
-                android:textColor="#666666" />
-
-            <ImageButton
-                android:id="@id/expand_collapse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_gravity="right|bottom"
-                android:background="@android:color/transparent"/>
-        </com.funguide.cc.movieticket.views.ExpandableTextView>
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="评论"
-        android:textColor="@color/black"
-        android:padding="10dp"
-        />
-    <ListView
-        android:id="@+id/film_comment_list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        />
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <include
+                    layout="@layout/layout_film_poster"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    >
+                    <Button
+                        android:id="@+id/film_chooseSeat_btn"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="选座购票"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_button_shape"
+                        />
+                    <com.funguide.cc.movieticket.views.ExpandableTextView
+                        android:id="@+id/expand_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        expandableTextView:maxCollapsedLines="6">
+
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:fontFamily="sans-serif-light"
+                            android:textSize="16sp"
+                            android:textColor="#666666"
+                            />
+
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:layout_gravity="center|bottom"
+                            android:background="@android:color/transparent"/>
+                    </com.funguide.cc.movieticket.views.ExpandableTextView>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="评论"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    />
+                <ListView
+                    android:id="@+id/film_comment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    />
+            </LinearLayout>
+        </ScrollView>
+        <TextView
+            android:id="@+id/film_comment_txt"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我来写评论"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="#662A5BC9"
+            android:padding="15dp"
+            />
+    </FrameLayout>
+
 </LinearLayout>

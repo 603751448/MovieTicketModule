@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/white_a"
     >
     <com.funguide.cc.movieticket.views.NoScrollGridView
         android:id="@+id/child_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
+        android:background="@color/white_a"
         >
-
     </com.funguide.cc.movieticket.views.NoScrollGridView>
 </LinearLayout>

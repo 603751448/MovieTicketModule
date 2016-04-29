@@ -7,7 +7,7 @@
     <color name="popup_main_background">#b0000000</color>
 
     <!-- 整体用色-->
-    <color name="blue">#0066CC</color>  <!--需要特别强调的用色  强调文字，选中导航栏，按钮状态，卡片管理，我的 -->
+    <color name="blue">#2A5BC9</color>  <!--需要特别强调的用色  强调文字，选中导航栏，按钮状态，卡片管理，我的 -->
     <color name="blue_a">#19B3F4</color>  <!--需要特别强调的用色  强调文字，选中导航栏，按钮状态，卡片管理，我的 -->
     <color name="pureBlack">#000000</color> <!-- 用于重要级文字，标题 -->
     <color name="black_a">#666666</color> <!-- 用于普通文字，引导词按钮用色，icon文字描述，次要按钮点击用色 -->

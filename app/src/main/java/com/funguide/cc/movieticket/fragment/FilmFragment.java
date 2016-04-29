@@ -24,8 +24,7 @@ import butterknife.ButterKnife;
  * Created by tom on 2016/4/23.
  */
 public class FilmFragment extends Fragment {
-    //    @Bind(R.id.text)
-//    TextView text;
+
     @Bind(R.id.cinema_listview)
     ListView cinemaListview;
     private List<Cinema> filmTocinemas;
