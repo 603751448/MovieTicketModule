@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/hoverScrollView"
+        android:scrollbars="none"
         >
 
         <FrameLayout
@@ -53,25 +54,18 @@
                     app:tabMode="scrollable"
                     app:tabSelectedTextColor="#ff00ff"
                     />
-                <LinearLayout
-                    android:id="@+id/condition_lly"
+                <include
+                    layout="@layout/layout_cinema_sort"
+                    />
+                <View
+                    android:layout_height="1dp"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="#ffffff"
-                    >
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="选择条件"
-                        />
-                </LinearLayout>
+                    android:background="@color/white_a"
+                    />
             </LinearLayout>
         </FrameLayout>
 
 
     </com.funguide.cc.movieticket.views.HoverScrollView>
-
-
 
 </LinearLayout>

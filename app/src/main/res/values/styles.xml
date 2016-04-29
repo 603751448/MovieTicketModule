@@ -29,4 +29,27 @@
         <item name="android:windowExitAnimation">@anim/pophidden_anim</item>
     </style>
 
+    <style name="cinema_sort_line_style">
+        <item name="android:layout_width">0.2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/white_b</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="cinema_sort_rly">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="cinema_sort_txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

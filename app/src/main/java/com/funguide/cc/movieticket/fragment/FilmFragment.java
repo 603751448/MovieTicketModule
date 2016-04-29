@@ -5,12 +5,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.funguide.cc.movieticket.R;
 import com.funguide.cc.movieticket.activity.SelectCinemaActivity;
+import com.funguide.cc.movieticket.adapter.ViewHolder;
+import com.funguide.cc.movieticket.adapter.listview.CommonAdapter;
+import com.funguide.cc.movieticket.model.Cinema;
 import com.funguide.cc.movieticket.utils.ViewUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,15 +26,12 @@ import butterknife.ButterKnife;
 public class FilmFragment extends Fragment {
     //    @Bind(R.id.text)
 //    TextView text;
-    @Bind(R.id.listview)
-    ListView listview;
+    @Bind(R.id.cinema_listview)
+    ListView cinemaListview;
+    private List<Cinema> filmTocinemas;
+
     private View viewRoot;
     private String name;
-    String str_name[]=new String[]{"aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb","cccccccccccc"
-            ,"aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb","aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb","cccccccccccc"
-            ,"aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb",
-            "aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb","cccccccccccc"
-            ,"aaaaaaaaaaaaaaaa", "bbbbbbbbbbbbbbb"};
 
 
     @Override
@@ -51,14 +53,31 @@ public class FilmFragment extends Fragment {
     }
 
     private void initView() {
-        listview.setAdapter(new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1, str_name));
-        int listViewHeight = ViewUtil.setListViewHeightBasedOnChildren1(listview);
+        cinemaListview.setAdapter(new CommonAdapter<Cinema>(this.getActivity(),R.layout.layout_recommen_cinema_item,filmTocinemas) {
+            @Override
+            public void convert(ViewHolder holder, int postion, Cinema cinema) {
+                holder.setText(R.id.cinema_name_txt,cinema.getCinemaName());
+                holder.setText(R.id.cinema_addre_txt,cinema.getAddre());
+                holder.setText(R.id.cinema_lowestprice_txt,cinema.getLowestPrice()+"元起");
+                holder.setText(R.id.cinema_distance_txt,"2.3km");
+            }
+        });
+
+        int listViewHeight = ViewUtil.setListViewHeightBasedOnChildren1(cinemaListview);
         ViewGroup.LayoutParams params = ((SelectCinemaActivity)getActivity()).filmPager.getLayoutParams();
         params.height = listViewHeight;
         ((SelectCinemaActivity)getActivity()).filmPager.setLayoutParams(params);
     }
 
     private void initData() {
+        filmTocinemas=new ArrayList<>();
+        for (int i = 0; i <20; i++) {
+            Cinema ciname=new Cinema();
+            ciname.setCinemaName("嘉年华国际影城（活力方店）");
+            ciname.setAddre("北京市朝阳区姚家元路甲一号");
+            ciname.setLowestPrice(48);
+            filmTocinemas.add(ciname);
+        }
     }
 
     @Override

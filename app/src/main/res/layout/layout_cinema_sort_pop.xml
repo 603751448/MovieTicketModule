@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@mipmap/bg_mengceng"
+    >
+    <ListView
+        android:id="@+id/cinema_sort_left_list"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="300dp"
+        android:listSelector="@color/white"
+        android:scrollbars="none"
+        android:background="@color/white_a"
+        android:divider="@color/white"
+        android:dividerHeight="1dp"
+        />
+    <ListView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:id="@+id/cinema_sort_right_list"
+        android:layout_height="300dp"
+        android:scrollbars="none"
+        android:background="@color/white"
+        android:divider="@null"
+        android:dividerHeight="@null"
+        />
+</LinearLayout>

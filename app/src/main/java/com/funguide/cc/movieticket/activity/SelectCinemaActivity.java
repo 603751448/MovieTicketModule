@@ -2,7 +2,6 @@ package com.funguide.cc.movieticket.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -49,16 +48,14 @@ public class SelectCinemaActivity extends BaseActivity {
     public   NoScrollViewPager filmPager;
     @Bind(R.id.film_tab)
     TabLayout filmTab;
-    @Bind(R.id.condition_lly)
-    LinearLayout conditionLly;
     @Bind(R.id.top_lly)
     LinearLayout topLly;
     @Bind(R.id.hoverScrollView)
     HoverScrollView hoverScrollView;
 
     String data[];
-    int topHeight;
-
+    int topHeight;//头部的高度
+    int translationY;//记录每次滑动的位置
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +78,12 @@ public class SelectCinemaActivity extends BaseActivity {
             public boolean onPreDraw() {
                 if (hasMeasured==false){
                     topHeight=filmPosterLly.getMeasuredHeight();
-                    Log.e("onPreDraw---->topHeight",topHeight+"");
                     topLly.setTranslationY(topHeight);
                     hasMeasured=true;
                 }
                 return true;
             }
         });
-
         titleCenterTxt.setText("电影名字");
         filmPager.setAdapter(new FilmPagerAdapter(getSupportFragmentManager(),data));
         filmTab.setupWithViewPager(filmPager);
@@ -100,13 +95,11 @@ public class SelectCinemaActivity extends BaseActivity {
         filmTab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                topLly.setTranslationY(filmPosterLly.getHeight());
+                topLly.setTranslationY(translationY);
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
@@ -115,23 +108,13 @@ public class SelectCinemaActivity extends BaseActivity {
         hoverScrollView.setOnScrollListener(new HoverScrollView.OnScrollListener() {
             @Override
             public void onScrollchanged(int scrollY) {
-                Log.e("scrollY",scrollY+"");
                 if (scrollY==0){
-                    topLly.setTranslationY(filmPosterLly.getHeight());
+                    topLly.setTranslationY(topHeight);
                 }else {
-                    Log.e("filmPager.getTop()",filmPager.getTop()+"");
-                    Log.e("topHeight",topHeight+"");
                     int translation = Math.max(scrollY,filmPager.getTop()-topHeight);
-                    Log.e("translation",translation+"");
+                    translationY=translation;
                     topLly.setTranslationY(translation);
                 }
-            }
-        });
-        filmPosterLly.post(new Runnable() {
-            @Override
-            public void run() {
-                topHeight=topLly.getHeight();
-                Log.e("topHeight",topHeight+"");
             }
         });
         hoverScrollView.smoothScrollTo(0,0);

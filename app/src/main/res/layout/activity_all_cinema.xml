@@ -4,16 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white_a"
     tools:context="com.funguide.cc.movieticket.activity.AllCinemaActivity">
 
     <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         layout="@layout/layout_header" />
-
-    <com.funguide.cc.movieticket.expandtabview.ExpandTabView
-        android:id="@+id/expandtab_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    <include
+        layout="@layout/layout_cinema_sort"
+        />
+    <ListView
+        android:id="@+id/cinema_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none"
+        />
 
 </LinearLayout>

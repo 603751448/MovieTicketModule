@@ -2,10 +2,12 @@ package com.funguide.cc.movieticket;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
+import android.widget.TextView;
 
 import com.funguide.cc.movieticket.utils.Constans;
 import com.funguide.cc.movieticket.utils.SharedPrefUtils;
@@ -124,7 +126,12 @@ public abstract class BaseActivity extends FragmentActivity {
         startActivityForResult(intent,result);
         overridePendingTransition(R.anim.left_in,R.anim.left_out);   /**跳转动画**/
     }
-
+    public void setTextDrawable(TextView textView, int resources) {
+        Drawable drawable = getResources().getDrawable(resources);
+        // 这一步必须要做,否则不会显示.
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, drawable, null);
+    }
     @Override
     public void startActivity(Intent intent) {
         super.startActivity(intent);

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cinema_sort_lly"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/white_a"
+    >
+    <RelativeLayout
+        android:id="@+id/cinema_sort1_rly"
+        style="@style/cinema_sort_rly">
+        <TextView
+            android:id="@+id/cinema_sort1_txt"
+            android:text="全部商圈"
+            android:drawableRight="@mipmap/icon_merchant_arrow_down"
+            style="@style/cinema_sort_txt" />
+    </RelativeLayout>
+
+
+    <View style="@style/cinema_sort_line_style" />
+
+    <RelativeLayout
+        android:id="@+id/cinema_sort2_rly"
+        style="@style/cinema_sort_rly"
+        >
+        <TextView
+            android:id="@+id/cinema_sort2_txt"
+            style="@style/cinema_sort_txt"
+            android:text="排序"
+            android:drawableRight="@mipmap/icon_merchant_arrow_down"
+
+            />
+    </RelativeLayout>
+    <View style="@style/cinema_sort_line_style" />
+    <RelativeLayout
+        android:id="@+id/cinema_sort3_rly"
+        style="@style/cinema_sort_rly"
+        >
+        <TextView
+            android:id="@+id/cinema_sort3_txt"
+            style="@style/cinema_sort_txt"
+            android:text="筛选"
+            android:drawableRight="@mipmap/icon_merchant_arrow_down"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
