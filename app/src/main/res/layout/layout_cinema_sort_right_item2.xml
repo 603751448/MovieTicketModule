@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-
-    android:background="@color/white"
     >
     <TextView
         android:id="@+id/cinema_sort_item_addre_txt"
@@ -14,14 +12,5 @@
         android:layout_centerVertical="true"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:paddingLeft="15dp"
-        />
-    <View
-        android:id="@+id/cinema_sort_item_view"
-        android:layout_height="1dp"
-        android:layout_width="match_parent"
-        android:background="@color/red"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         />
 </LinearLayout>

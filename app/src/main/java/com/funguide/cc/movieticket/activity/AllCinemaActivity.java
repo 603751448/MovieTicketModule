@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -61,9 +60,7 @@ public class AllCinemaActivity extends BaseActivity  {
     List<Cinema> cinemas=new ArrayList<>();
 
     private PopupWindow popupWindow1;
-    boolean popu2Isshow =false;
     private PopupWindow popupWindow2;
-    boolean popu1Isshow=false;
     private CommonAdapter<String> rightAdapter;
     List<CinemaSort> cinemaSorts;
     List<String> addres = new ArrayList<>();
@@ -81,7 +78,6 @@ public class AllCinemaActivity extends BaseActivity  {
     public void initView() {
         titleCenterTxt.setText("全部影院");
         titleRightImg.setVisibility(View.VISIBLE);
-//       titleRightImg.setImageResource(R.mipmap.);
 
         cinemaList.setAdapter(new CommonAdapter<Cinema>(this,R.layout.layout_recommen_cinema_item,cinemas) {
             @Override
@@ -94,6 +90,8 @@ public class AllCinemaActivity extends BaseActivity  {
         });
 
     }
+
+
     public void initData() {
         for (int i = 0; i <20; i++) {
             Cinema ciname=new Cinema();
@@ -102,7 +100,6 @@ public class AllCinemaActivity extends BaseActivity  {
             ciname.setLowestPrice(48);
             cinemas.add(ciname);
         }
-
         cinemaSorts = new ArrayList<>();
         addres.add(0, "全部");
         for (int i = 0; i < 10; i++) {
@@ -133,6 +130,10 @@ public class AllCinemaActivity extends BaseActivity  {
                 startActivity(FuzzySearchActivity.class);
                 break;
             case R.id.cinema_sort1_rly:
+                if (popupWindow2!=null){
+                    popupWindow2.dismiss();
+                    popupWindow2=null;
+                }
                 if (popupWindow1 == null || !popupWindow1.isShowing()){
                     showPopupwindow1();
                     setTextDrawable(cinemaSort1Txt, R.mipmap.icon_merchant_arrow_up);
@@ -141,6 +142,10 @@ public class AllCinemaActivity extends BaseActivity  {
                 }
                 break;
             case R.id.cinema_sort2_rly:
+                if (popupWindow1!=null){
+                    popupWindow1.dismiss();
+                    popupWindow1=null;
+                }
                 if (popupWindow2 == null || !popupWindow2.isShowing()){
                     showPopupwindow2();
                     setTextDrawable(cinemaSort2Txt, R.mipmap.icon_merchant_arrow_up);
@@ -154,7 +159,7 @@ public class AllCinemaActivity extends BaseActivity  {
         }
     }
     int currentPostion;
-
+    int currentPostion2=0;
     private void showPopupwindow1() {
         View popuView1 = LayoutInflater.from(this).inflate(R.layout.layout_cinema_sort_pop, null);
         ListView listViewLeft = (ListView) popuView1.findViewById(R.id.cinema_sort_left_list);
@@ -172,34 +177,34 @@ public class AllCinemaActivity extends BaseActivity  {
             public void convert(ViewHolder holder, int postion, String s) {
                 holder.setText(R.id.cinema_sort_item_addre_txt, addres.get(postion));
                 if (postion == currentPostion) {
+//                    if (currentPostion==addres.size()-1){
+//                        holder.setVisible(R.id.cinema_sort_item_view, false);
+//                        holder.setTextColor(R.id.cinema_sort_item_addre_txt,getResources().getColor(R.color.red));
+//                    }else {
                     holder.setVisible(R.id.cinema_sort_item_view, true);
+                    holder.setTextColor(R.id.cinema_sort_item_addre_txt,getResources().getColor(R.color.red));
+//                    }
                 } else {
                     holder.setVisible(R.id.cinema_sort_item_view, false);
+                    holder.setTextColor(R.id.cinema_sort_item_addre_txt,getResources().getColor(R.color.black_a));
+
                 }
             }
         };
         listViewRight.setAdapter(rightAdapter);
-        listViewRight.setSelection(0);
-        listViewRight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentPostion = position;
-                listViewRight.setSelection(currentPostion);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+        listViewRight.setSelection(currentPostion2);
         listViewRight.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cinemaSort1Txt.setText(addres.get(position));
                 popupWindow1.dismiss();
+                currentPostion=position;
             }
         });
         listViewLeft.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                currentPostion2=position;
                 if (addres != null) {
                     addres.clear();
                     addres.add(0, "全部");
@@ -211,57 +216,54 @@ public class AllCinemaActivity extends BaseActivity  {
                 }
             }
         });
-
-        showPopupwindow(popuView1);
+        popupwindow1(popuView1);
     }
-
+    int selectPostion=0;
     private void showPopupwindow2() {
-        View popuView2 = LayoutInflater.from(this).inflate(R.layout.layout_cinema_sort_pop2, null);
+        final View popuView2 = LayoutInflater.from(this).inflate(R.layout.layout_cinema_sort_pop2, null);
         ListView rightlist2 = (ListView) popuView2.findViewById(R.id.cinema_sort_right_list2);
         rightlist2.setAdapter(new CommonAdapter<String>(this, R.layout.layout_cinema_sort_right_item2, sort) {
             @Override
             public void convert(ViewHolder holder, int postion, String s) {
                 holder.setText(R.id.cinema_sort_item_addre_txt, sort.get(postion));
+                if (postion==selectPostion){
+                    holder.setTextColor(R.id.cinema_sort_item_addre_txt,getResources().getColor(R.color.red));
+                }else {
+                    holder.setTextColor(R.id.cinema_sort_item_addre_txt,getResources().getColor(R.color.black_a));
+                }
             }
         });
-        showPopupwindow22(popuView2);
+        rightlist2.setSelection(0);
+        rightlist2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                cinemaSort2Txt.setText(sort.get(position));
+                popupWindow2.dismiss();
+                selectPostion=position;
+            }
+        });
+        popupwindow2(popuView2);
     }
 
-    private void showPopupwindow22(View view) {
-        popu2Isshow = true;
+    private void popupwindow2(View view) {
         WindowManager windowManager = this.getWindowManager();
         Display display = windowManager.getDefaultDisplay();
         if (popupWindow2==null)
         {
             popupWindow2 = new PopupWindow(view, display.getWidth(),display.getHeight(), true);
         }
-//        popupWindow2.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow2.setOutsideTouchable(true);
-//        popupWindow2.setAnimationStyle(android.R.style.Animation_Dialog);
-//        popupWindow2.setTouchable(true);
-//        popupWindow2.setFocusable(false);
-//        popupWindow2.setOutsideTouchable(true);
-        view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow2.dismiss();
-                popupWindow2=null;
-                return false;
-            }
-        });
+        popupWindow2.setAnimationStyle(android.R.style.Animation_Dialog);
+        popupWindow2.setFocusable(false);
         popupWindow2.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                Log.d("onDismiss","popupWindow1");
-                popu2Isshow = false;
+                Log.d("onDismiss","popupWindow2");
                 popupWindow2.dismiss();
                 popupWindow2=null;
                 setTextDrawable(cinemaSort2Txt, R.mipmap.icon_merchant_arrow_down);
             }
         });
         popupWindow2.showAsDropDown(cinemaSortLly, 0, 0);
-
-
     }
 
     /**
@@ -269,34 +271,18 @@ public class AllCinemaActivity extends BaseActivity  {
      *
      * @param view
      */
-    private void showPopupwindow(View view) {
-        popu1Isshow = true;
+    private void popupwindow1(View view) {
         WindowManager windowManager = this.getWindowManager();
         Display display = windowManager.getDefaultDisplay();
         if (popupWindow1==null){
             popupWindow1 = new PopupWindow(view, display.getWidth(),display.getHeight(), true);
         }
-//        popupWindow1.setBackgroundDrawable(new BitmapDrawable());
-//        popupWindow1.setOutsideTouchable(true);
-//        popupWindow1.setAnimationStyle(android.R.style.Animation_Dialog);
-//        popupWindow1.setTouchable(true);
-//        popupWindow1.setFocusable(false);
-//        popupWindow1.setOutsideTouchable(true);
-//        view.setFocusableInTouchMode(true);
-
-        view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow1.dismiss();
-                popupWindow1=null;
-                return false;
-            }
-        });
+        popupWindow1.setAnimationStyle(android.R.style.Animation_Dialog);
+        popupWindow1.setFocusable(false);
         popupWindow1.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
                 Log.d("onDismiss","popupWindow1");
-                popu1Isshow = false;
                 popupWindow1.dismiss();
                 popupWindow1=null;
                 setTextDrawable(cinemaSort1Txt, R.mipmap.icon_merchant_arrow_down);
@@ -304,7 +290,5 @@ public class AllCinemaActivity extends BaseActivity  {
         });
         popupWindow1.showAsDropDown(cinemaSortLly, 0, 0);
     };
-
-
 
 }
