@@ -2,6 +2,7 @@ package com.funguide.cc.movieticket.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -54,8 +55,9 @@ public class SelectCinemaActivity extends BaseActivity {
     HoverScrollView hoverScrollView;
 
     String data[];
+    int topY;//滑动动态获取头部的位置
     int topHeight;//头部的高度
-    int translationY;//记录每次滑动的位置
+    int translationY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,13 +110,20 @@ public class SelectCinemaActivity extends BaseActivity {
         hoverScrollView.setOnScrollListener(new HoverScrollView.OnScrollListener() {
             @Override
             public void onScrollchanged(int scrollY) {
+                Log.e("scrollY",scrollY+"");
                 if (scrollY==0){
                     topLly.setTranslationY(topHeight);
                 }else {
-                    int translation = Math.max(scrollY,filmPager.getTop()-topHeight);
+                    int translation = Math.max(scrollY,filmPager.getTop()-topY);
                     translationY=translation;
                     topLly.setTranslationY(translation);
                 }
+            }
+        });
+        filmPosterLly.post(new Runnable() {
+            @Override
+            public void run() {
+                topY=topLly.getTop();
             }
         });
         hoverScrollView.smoothScrollTo(0,0);
