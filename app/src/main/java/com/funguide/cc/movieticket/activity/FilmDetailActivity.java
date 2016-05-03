@@ -3,15 +3,17 @@ package com.funguide.cc.movieticket.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.funguide.cc.movieticket.BaseActivity;
 import com.funguide.cc.movieticket.R;
-import com.funguide.cc.movieticket.model.FilmComment;
+import com.funguide.cc.movieticket.utils.KeyBoardUtils;
 import com.funguide.cc.movieticket.views.ExpandableTextView;
 
 import butterknife.Bind;
@@ -23,12 +25,10 @@ import butterknife.OnClick;
  */
 public class FilmDetailActivity extends BaseActivity {
 
-
     @Bind(R.id.title_back_img)
     ImageView titleBackImg;
     @Bind(R.id.title_center_txt)
     TextView titleCenterTxt;
-
     @Bind(R.id.film_poster_pic_img)
     ImageView filmPosterPicImg;
     @Bind(R.id.film_poster_name_txt)
@@ -59,8 +59,13 @@ public class FilmDetailActivity extends BaseActivity {
     ListView filmCommentList;
     @Bind(R.id.film_comment_txt)
     TextView filmCommentTxt;
+    @Bind(R.id.film_comment_edit)
+    EditText filmCommentEdit;
+    @Bind(R.id.film_comment_btn)
+    Button filmCommentBtn;
+    @Bind(R.id.film_comment_rly)
+    RelativeLayout filmCommentRly;
 
-    FilmComment  comments=new FilmComment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +77,6 @@ public class FilmDetailActivity extends BaseActivity {
     }
 
     private void initData() {
-
-
 
     }
 
@@ -90,8 +93,7 @@ public class FilmDetailActivity extends BaseActivity {
     }
 
 
-
-    @OnClick({R.id.title_back_img, R.id.film_chooseSeat_btn, R.id.film_comment_txt})
+    @OnClick({R.id.title_back_img, R.id.film_chooseSeat_btn, R.id.film_comment_txt,R.id.film_comment_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.title_back_img:
@@ -101,8 +103,17 @@ public class FilmDetailActivity extends BaseActivity {
                 startActivity(SelcectSeatActivity.class);
                 break;
             case R.id.film_comment_txt:
-
+                filmCommentTxt.setVisibility(View.GONE);
+                filmCommentRly.setVisibility(View.VISIBLE);
+                KeyBoardUtils.openKeybord(filmCommentEdit,FilmDetailActivity.this);
+                break;
+            case R.id.film_comment_btn:
+                filmCommentRly.setVisibility(View.GONE);
+                KeyBoardUtils.closeKeybord(filmCommentEdit,FilmDetailActivity.this);
+                filmCommentTxt.setVisibility(View.VISIBLE);
+                filmCommentEdit.setText("");
                 break;
         }
     }
+
 }

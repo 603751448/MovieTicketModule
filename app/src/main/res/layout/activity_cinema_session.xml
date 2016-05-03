@@ -80,15 +80,44 @@
             android:layout_gravity="center_horizontal"
             />
     </LinearLayout>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@+id/cinema_session_film_name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="朝阳北路101号朝阳大悦城8层"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/icon_arrow_right"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        />
     <android.support.design.widget.TabLayout
         android:id="@+id/cinema_session_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorColor="#ff00ff"
+        app:tabIndicatorColor="@color/blue"
         android:background="#ffffff"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="#ff00ff"
+        app:tabSelectedTextColor="@color/black"
         />
     <View
         android:layout_height="1dp"

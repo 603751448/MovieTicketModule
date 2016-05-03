@@ -36,8 +36,6 @@ public class CinemaSessionActivity extends BaseActivity {
     TabLayout cinemaSessionTab;
     @Bind(R.id.cinema_session_pager)
     NoScrollViewPager cinemaSessionPager;
-
-    String data[];
     @Bind(R.id.cinema_session_cinameName_txt)
     TextView cinemaSessionCinameNameTxt;
     @Bind(R.id.cinema_session_cinemaAddre_txt)
@@ -45,6 +43,8 @@ public class CinemaSessionActivity extends BaseActivity {
     @Bind(R.id.cinema_session_cinameIntroduce_lly)
     LinearLayout cinemaSessionCinameIntroduceLly;
 
+
+    String data[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

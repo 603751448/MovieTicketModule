@@ -13,7 +13,6 @@
         <activity android:name=".activity.TicketMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,21 +22,13 @@
         <activity android:name=".activity.AllCinemaActivity" />
         <activity android:name=".activity.MyOderActivity" />
         <activity android:name=".activity.MyCouponActivity" />
-        <activity android:name=".activity.CinemaSessionActivity" />
+        <activity android:name=".activity.CinemaSessionActivity"/>
         <activity android:name=".activity.FuzzySearchActivity" />
         <activity android:name=".activity.FilmDetailActivity" />
         <activity android:name=".activity.SelectCinemaActivity" />
         <activity android:name=".activity.CinemaDetialActivity" />
-        <!--
- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity android:name=".activity.SelcectSeatActivity" />
-        <activity android:name=".activity.SubmitOrderActivity"></activity>
+        <activity android:name=".activity.SubmitOrderActivity"/>
     </application>
 
 </manifest>

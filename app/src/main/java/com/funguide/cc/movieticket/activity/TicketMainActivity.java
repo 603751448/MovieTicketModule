@@ -45,9 +45,6 @@ public class TicketMainActivity extends BaseActivity {
     TextView titleRightTxt;
     @Bind(R.id.title_right_img)
     ImageView titleRightImg;
-    /**
-     * 广告布局控件
-     **/
     @Bind(R.id.ticket_main_viewpager)
     ViewPager ticketMainViewpager;
     @Bind(R.id.viewpager_point1_img)
@@ -64,24 +61,14 @@ public class TicketMainActivity extends BaseActivity {
     LinearLayout ticketAllcinemaLly;
     @Bind(R.id.ticket_myticket_lly)
     LinearLayout ticketMyticketLly;
-
     @Bind(R.id.ticket_hot_film_txt)
-    TextView ticketRecommendfilmTxt;
-    @Bind(R.id.ticket_recommend_cinema_txt)
-    TextView ticketRecommendCinemaTxt;
-
-
-    /**
-     * 热门电影
-     **/
+    TextView ticketHotFilmTxt;
     @Bind(R.id.ticket_hot_film_grid)
     AllGridView ticketHotFilmGrid;
-    /**
-     * 推荐影院
-     **/
+    @Bind(R.id.ticket_recommend_cinema_txt)
+    TextView ticketRecommendCinemaTxt;
     @Bind(R.id.ticket_recommend_cinema_list)
     AllListView ticketRecommendCinemaList;
-
     /**
      * 热门电影
      **/
@@ -90,7 +77,6 @@ public class TicketMainActivity extends BaseActivity {
      * 推荐影院
      **/
     List<Cinema> recommendCinemas = new ArrayList<>();
-
     private List<View> viewLists;
     private int[] imageResId; // 图片ID
     private int currentItem = 0; // 当前图片的索引号
@@ -152,10 +138,10 @@ public class TicketMainActivity extends BaseActivity {
 
         ticketHotFilmGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,final int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("film",hotFilms.get(position));
-                startActivity(SelectCinemaActivity.class,bundle);
+                bundle.putParcelable("film", hotFilms.get(position));
+                startActivity(SelectCinemaActivity.class, bundle);
             }
         });
 
@@ -169,8 +155,8 @@ public class TicketMainActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("film",recommendCinemas.get(position));
-                startActivity(CinemaSessionActivity.class,bundle);
+                bundle.putParcelable("film", recommendCinemas.get(position));
+                startActivity(CinemaSessionActivity.class, bundle);
             }
         });
     }
@@ -205,7 +191,7 @@ public class TicketMainActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.title_right_img://疑问题
-                startActivity( TicketProblemActivity.class );
+                startActivity(TicketProblemActivity.class);
                 break;
             case R.id.ticket_allfilm_lly:     //全部影片
                 startActivity(AllFilmActivity.class);
@@ -274,7 +260,7 @@ public class TicketMainActivity extends BaseActivity {
 
     @Override
     protected void onStart() {
-        Log.d("main","onStart");
+        Log.d("main", "onStart");
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         // 当Activity显示出来后，每两秒钟切换一次图片显示
         scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 2, TimeUnit.SECONDS);

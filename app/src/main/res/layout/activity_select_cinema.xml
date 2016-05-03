@@ -49,10 +49,10 @@
                     android:id="@+id/film_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:tabIndicatorColor="#ff00ff"
+                    app:tabIndicatorColor="@color/blue"
                     android:background="#ffffff"
                     app:tabMode="scrollable"
-                    app:tabSelectedTextColor="#ff00ff"
+                    app:tabSelectedTextColor="@color/black"
                     />
                 <include
                     layout="@layout/layout_cinema_sort"

@@ -13,6 +13,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         >
         <ScrollView
             android:layout_width="match_parent"
@@ -93,7 +94,41 @@
             android:textColor="@color/white"
             android:background="#662A5BC9"
             android:padding="15dp"
+            android:visibility="visible"
             />
+        <RelativeLayout
+            android:id="@+id/film_comment_rly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:visibility="gone"
+            >
+            <EditText
+                android:id="@+id/film_comment_edit"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="left"
+                android:hint="和小伙伴们分享一下你的看法"
+                android:background="@drawable/bg_rounded_shape"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toLeftOf="@+id/film_comment_btn"
+                />
+            <Button
+                android:id="@+id/film_comment_btn"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button_shape"
+                android:layout_margin="10dp"
+                />
+        </RelativeLayout>
     </FrameLayout>
 
 </LinearLayout>

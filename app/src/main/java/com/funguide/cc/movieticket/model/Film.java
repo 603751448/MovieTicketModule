@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by tom on 2016/4/27.
  */
-public class Film extends BaseResponse implements Parcelable {
+public class Film implements Parcelable {
 
     /**
      * filmId : 1764
